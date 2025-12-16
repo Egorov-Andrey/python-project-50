@@ -3,8 +3,6 @@ import json
 
 def generate_diff(filepath1, filepath2):  
 
-    filepath1 = '/home/aegorov/projects-python/python-project-50/gendiff/file1.json'
-    filepath2 = '/home/aegorov/projects-python/python-project-50/gendiff/file1.json'
     data1 = json.load(open(filepath1))
     data2 = json.load(open(filepath2))
 
