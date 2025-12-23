@@ -16,4 +16,6 @@ lint:
 test:
 	uv run pytest tests/
 
-check: lint test
+test-coverage:
+	uv run pytest --cov=gendiff --cov-report=term-missing --cov-report=xml
+
