@@ -24,12 +24,28 @@ jobs:
       - name: Run test coverage
         run: |
           make test-coverage
+      - name: Generate coverage and test reports
+        run: |
+          python -m pytest \
+            --cov=gendiff \
+            --cov-report=xml \
+            --junitxml=report.xml \
+            tests/ || echo "Tests completed"  
       - name: SonarQubeScan
-        uses: SonarSource/sonarqube-scan-action@v6
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=hexlet-boilerplates_python-package
-            -Dsonar.organization=hexlet-boilerplates
-            -Dsonar.python.coverage.reportPaths=coverage.xml
+        run: |
+          # Проверка доступности отчетов
+          [ -f coverage.xml ] && echo "coverage.xml found" || echo "coverage.xml not found"
+          [ -f report.xml ] && echo "report.xml found" || echo "report.xml not found"
+          
+          # Запуск анализатора
+          sonar-scanner \
+            -Dsonar.projectKey=hexlet-boilerplates_python-package \
+            -Dsonar.organization=hexlet-boilerplates \
+            -Dsonar.sources=gendiff \
+            -Dsonar.tests=tests \
+            -Dsonar.python.coverage.reportPaths=coverage.xml \
+            -Dsonar.python.xunit.reportPath=report.xml \
+            -Dsonar.verbose=true
