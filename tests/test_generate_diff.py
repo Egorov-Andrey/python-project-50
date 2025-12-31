@@ -16,3 +16,4 @@ def test_generate_diff():
     actual = generate_diff("./tests/test_data/file1.json",
                             "./tests/test_data/file2.json")
     assert actual == expected
+
