@@ -31,7 +31,7 @@ jobs:
       SONAR_HOST_URL: https://sonarcloud.io
       with:
       args: >
-        -Dsonar.projectKey=Egorov-Andrey_python-project-50
+        -Dsonar.project=Egorov-Andrey_python-project-50
         -Dsonar.organization=Egorov-Andrey
         -Dsonar.sources=gendiff
         -Dsonar.tests=tests
