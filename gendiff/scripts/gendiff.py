@@ -1,5 +1,4 @@
 import argparse
-import sys
 
 from gendiff import generate_diff
 
@@ -25,7 +24,7 @@ def run_cli(args=None):
     diff_result = generate_diff(
         parsed_args.first_file, 
         parsed_args.second_file,
-        parsed_args.format
+        # parsed_args.format
     )
     return diff_result
 

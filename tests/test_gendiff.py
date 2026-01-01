@@ -1,14 +1,15 @@
 import argparse
-import sys
 from io import StringIO
-from unittest.mock import patch, mock_open, MagicMock
-from gendiff.scripts.gendiff import create_parser, run_cli, main
+
+from gendiff.scripts.gendiff import create_parser
+
 
 def test_create_parser():
 
     parser = create_parser()
     assert isinstance(parser, argparse.ArgumentParser)
     assert parser.description == 'Compares two configuration files and shows a difference'
+
 
 def test_parser_with_format():
 
@@ -23,6 +24,7 @@ def test_parser_with_format():
     assert args.second_file == 'file2.json'
     assert args.format == 'plain'
 
+
 def test_parser_short_format():
     parser = create_parser()
 
@@ -33,7 +35,8 @@ def test_parser_short_format():
     ])
     assert args.format == 'json'
 
-def test_help_output():
+
+def test_help_output():  
     parser = create_parser()
 
     help_output = StringIO()

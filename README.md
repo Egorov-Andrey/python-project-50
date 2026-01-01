@@ -12,4 +12,4 @@
 [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=Egorov-Andrey_python-project-50&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=Egorov-Andrey_python-project-50)
 [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Egorov-Andrey_python-project-50&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Egorov-Andrey_python-project-50)
 [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=Egorov-Andrey_python-project-50&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=Egorov-Andrey_python-project-50)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?projectKey=Egorov-Andrey_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Egorov-Andrey_python-project-50)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Egorov-Andrey_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Egorov-Andrey_python-project-50)
