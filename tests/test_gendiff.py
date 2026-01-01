@@ -1,14 +1,15 @@
 import argparse
 from io import StringIO
 
-from gendiff.scripts.gendiff import create_parser
+from ..gendiff.scripts.gendiff import create_parser
 
 
 def test_create_parser():
 
     parser = create_parser()
     assert isinstance(parser, argparse.ArgumentParser)
-    assert parser.description == 'Compares two configuration files and shows a difference'
+    assert parser.description == 'Compares two configuration files and shows a'
+    'difference'
 
 
 def test_parser_with_format():
