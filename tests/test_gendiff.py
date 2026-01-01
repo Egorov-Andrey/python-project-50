@@ -1,7 +1,7 @@
 import argparse
 from io import StringIO
 
-from ..gendiff.scripts.gendiff import create_parser
+from gendiff.scripts.gendiff import create_parser
 
 
 def test_create_parser():
