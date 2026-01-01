@@ -25,17 +25,17 @@ jobs:
         run: |
           make test-coverage
       - name: SonarCloud Scan
-        uses: SonarSource/sonarqube-scan-action@v6
-    env:
-      SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      SONAR_HOST_URL: https://sonarcloud.io
-      with:
-      args: >
-        -Dsonar.project=Egorov-Andrey_python-project-50
-        -Dsonar.organization=Egorov-Andrey
-        -Dsonar.sources=gendiff
-        -Dsonar.tests=tests
-        -Dsonar.python.coverage.reportPaths=coverage.xml
-        -Dsonar.python.xunit.reportPath=report.xml
-        -Dsonar.scm.disabled=true
-        -Dsonar.verbose=true
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=Egorov-Andrey_python-project-50
+            -Dsonar.organization=Egorov-Andrey
+            -Dsonar.sources=gendiff
+            -Dsonar.tests=tests
+            -Dsonar.python.coverage.reportPaths=coverage.xml
+            -Dsonar.python.xunit.reportPath=report.xml
+            -Dsonar.scm.disabled=true
+            -Dsonar.verbose=true
