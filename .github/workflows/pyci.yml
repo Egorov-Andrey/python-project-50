@@ -47,8 +47,8 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with: 
           args: >
-            -Dsonar.projectKey=egorov-andrey_python-project-50
-            -Dsonar.organization=egorov-andrey
+            -Dsonar.projectKey=Egorov-Andrey_python-project-50
+            -Dsonar.organization=Egorov-Andrey
             -Dsonar.sources=gendiff
             -Dsonar.tests=tests
             -Dsonar.python.coverage.reportPaths=coverage.xml
