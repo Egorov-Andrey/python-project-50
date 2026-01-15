@@ -1,29 +1,26 @@
 import json
 
+import yaml
 
-def generate_diff(filepath1, filepath2):  
+from gendiff.differ import build_diff
+from gendiff.formater_diff import format_diff
 
-    data1 = json.load(open(filepath1))
-    data2 = json.load(open(filepath2))
 
-    def format_value(value):
-        if isinstance(value, bool):
-            return str(value).lower()
-        return str(value)
-    
-    result_lines = []
-    all_keys = sorted(set(data1.keys()) | set(data2.keys()))
-    
-    for key in all_keys:
-        if key not in data2:
-            result_lines.append(f"- {key}: {format_value(data1[key])}")
-        elif key not in data1:
-            result_lines.append(f"+ {key}: {format_value(data2[key])}")
-        elif data1[key] != data2[key]:
-            result_lines.append(f"- {key}: {format_value(data1[key])}")
-            result_lines.append(f"+ {key}: {format_value(data2[key])}")
-        else:
-            result_lines.append(f"  {key}: {format_value(data1[key])}")
-    
-    return "\n".join(result_lines)
-    
+def load_data(filepath):
+    with open(filepath, 'r') as f:
+        if filepath.endswith('.json'):
+            return json.load(f)
+        elif filepath.endswith(('.yaml', '.yml')):
+            return yaml.safe_load(f)
+        else: 
+            raise ValueError(f'Unsupported file format: {filepath}')
+        
+
+def generate_diff(filepath1, filepath2, format_name='stylish'):
+  
+    data1 = load_data(filepath1)
+    data2 = load_data(filepath2)
+
+    diff_tree = build_diff(data1, data2)
+        
+    return format_diff(diff_tree, format_name)
