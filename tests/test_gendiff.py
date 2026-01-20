@@ -1,6 +1,8 @@
 import argparse
 from io import StringIO
 
+import pytest
+
 from gendiff.scripts.gendiff import create_parser
 
 
@@ -35,6 +37,17 @@ def test_parser_short_format():
         '-f', 'json'
     ])
     assert args.format == 'json'
+
+
+def test_parser_invalid_format():
+    parser = create_parser()
+
+    with pytest.raises(SystemExit):
+        parser.parse_args([
+            'file1.json',
+            'file2.json',
+            '--format', 'invalid'
+        ])
 
 
 def test_help_output():  

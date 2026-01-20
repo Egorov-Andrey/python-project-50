@@ -20,7 +20,7 @@ def format_diff(diff, format_name='stylish'):
 
 
 def format_stylish(diff, depth=0):
-    """Форматирует в стильном виде (как в примере)."""
+
     indent = ' ' * (depth * 4)
     result_lines = []
     
@@ -63,14 +63,14 @@ def format_plain(diff, path=""):
         elif info['type'] == 'added':
             value = format_value_plain(info['value'])
             result_lines.append(f"Property '{current_path}'"
-                                f"was added with value:{value}")
+                                f" was added with value: {value}")
         elif info['type'] == 'removed':
             result_lines.append(f"Property '{current_path}' was removed")
         elif info['type'] == 'changed':
             old_value = format_value_plain(info['old_value'])
             new_value = format_value_plain(info['new_value'])
             result_lines.append(
-                f"Property '{current_path}' was updated. From"
+                f"Property '{current_path}' was updated. From "
                 f"{old_value} to {new_value}"
             )  
     

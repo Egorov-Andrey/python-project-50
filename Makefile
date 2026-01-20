@@ -2,7 +2,7 @@ install:
 	uv sync
 
 gendiff:
-	uv run gendiff
+	uv run gendiff first_file second_file
 
 build:
 	uv build

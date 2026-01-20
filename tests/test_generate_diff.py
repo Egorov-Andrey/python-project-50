@@ -37,3 +37,20 @@ def test_generate_diff_yml1():
     actual = generate_diff("./tests/test_data/file3.yml",
                             "./tests/test_data/file4.yml")
     assert actual == expected
+
+
+def test_generate_diff_json2():
+    expected = read_file("result2.txt")
+    actual = generate_diff("./tests/test_data/file3.json",
+                            "./tests/test_data/file4.json", format_name='plain')
+    assert actual == expected
+
+
+def test_generate_diff_json3():
+    expected = read_file("result3.json")
+    actual = generate_diff("./tests/test_data/file3.json",
+                            "./tests/test_data/file4.json", format_name='json')
+    assert actual == expected
+
+    
+
